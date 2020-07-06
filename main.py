@@ -12,7 +12,7 @@ UNNAMEDSTARS = "grey"
 
 # This function initializes the turtle object as well as the window
 # INPUT: None
-# RETURN: None
+# RETURN: Turtle Object
 def setup():
     pointer = turtle.Turtle()
     screen = turtle.getscreen()
@@ -26,7 +26,7 @@ def setup():
 
 
 # This function draws the blue axes and the tick marks for locating stars
-# INPUT: Turtle pointer object
+# INPUT: Turtle object
 # RETURN: None
 def draw_axes(pointer):
     # Draws the lines and ticks for the axes
@@ -67,7 +67,7 @@ def draw_axes(pointer):
 # ...and returns a list of nested lists containing star x, y coordinates and their magnitudes. It...
 # ...also returns a dictionary of all named stars with key=name/value=[x,y,mag]
 # INPUT: Star data file
-# RETURN: None
+# RETURN: star location information
 def read_star_info(filename):
     if not os.path.isfile(filename):
         print('ERROR: The star filename you have given does not exist.')
@@ -96,7 +96,7 @@ def read_star_info(filename):
 
 # This function draws each star from the star_info input data. Named stars are cross-checked with...
 # ...the star_info_dict dictionary and are drawn in white. All other unnamed stars are drawn in grey.
-# INPUT: Turtle pointer object, star[x,y,mag], star key=name/value=[x,y,mag] dictionary, bit to display names
+# INPUT: Turtle object, star[x,y,mag], star key=name/value=[x,y,mag] dictionary, bit to display names
 # RETURN: None
 def draw_stars(pointer, star_info, star_info_dict, star_name_bit):
     name = ''
@@ -145,7 +145,7 @@ def read_constellation_info(filename):
 
 
 # This function draws the constellation when given the constellation data read from a file
-# INPUT: Turtle pointer object, constellation star location data, star key=name/value=[x,y,mag], color bit
+# INPUT: Turtle object, constellation star location data, star key=name/value=[x,y,mag], color bit
 # RETURN: None
 def draw_constellation(pointer, constellation_info, constellation_name, star_info_dict, color):
     min_x, max_x, min_y, max_y = 1.0, -1.0, 1.0, -1.0
@@ -170,15 +170,17 @@ def draw_constellation(pointer, constellation_info, constellation_name, star_inf
             pointer.goto(300+(x_cor*300), 300+(y_cor*300))
             pointer.down()
         pointer.up()
-    with open(constellation_name+'_box.dat', 'w') as f:
+    with open('boxes/'+constellation_name+'_box.dat', 'w') as f:
         f.write('{}\n{}\n{}\n{}'.format(str(min_x), str(max_x), str(min_y), str(max_y)))
     pointer.up()
     pointer.home()
 
-
+# This function draws a named box around the constellation to better highlight it.
+# INPUT: Turtle object, name of the constellation to draw a box around
+# RETURN: None
 def draw_constellation_border_box(pointer, constellation_name):
     pointer.color('orange')
-    with open(constellation_name+'_box.dat') as f:
+    with open('boxes/'+constellation_name+'_box.dat') as f:
         points = [lines.strip() for lines in f]
 
     min_x = float(points[0])
