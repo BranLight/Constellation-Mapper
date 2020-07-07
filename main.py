@@ -234,7 +234,7 @@ def main():
         stars_location_file = 'star_locations/' + input('Enter a star location filename:')
         star_info, star_info_dict = read_star_info(stars_location_file)
     else:
-        stars_location_file = input('Enter a star location filename:')
+        stars_location_file = 'star_locations/' + input('Enter a star location filename:')
         star_info, star_info_dict = read_star_info(stars_location_file)
 
     # Calling drawing functions for the axes and stars
