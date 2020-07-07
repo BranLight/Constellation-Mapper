@@ -18,6 +18,6 @@ This program parses CSV data of star locations and size (four files provided in 
 
 ![drawingConstellations](https://user-images.githubusercontent.com/63391309/86703520-9497b480-bfd9-11ea-80fc-384f90092883.gif)
 
-### Example Output.
+## Example Output.
 
 ![Screen Shot 2020-07-06 at 10 48 26 PM](https://user-images.githubusercontent.com/63391309/86704979-0290ab80-bfdb-11ea-8598-d67d6c42720a.png)
