@@ -1,3 +1,5 @@
+![Screen Shot 2020-07-06 at 10 48 26 PM](https://user-images.githubusercontent.com/63391309/86704979-0290ab80-bfdb-11ea-8598-d67d6c42720a.png)
+
 # Constellation-Mapper
 A program for mapping stars and their constellations.
 
