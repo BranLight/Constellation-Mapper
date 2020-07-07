@@ -16,3 +16,4 @@ This program parses CSV data of star locations and size (four files provided in 
 
 3. Once all of the stars have been drawn the program will then prompt you for a constellation name. I have provided eight in the `constellations` folder. Just type in whichever constellation file you want to draw, making sure to inlcude the `.dat` extension at the end. After the constellation has been drawn it will prompt you to continue entering constellations. Simply enter nothing to quit the program. Again, just as with the star_locations folder this project handles the constellation data in a very rigid manner. So if you add your own data file to this folder it may not handle it properly.
 
+![drawingConstellations](https://user-images.githubusercontent.com/63391309/86703520-9497b480-bfd9-11ea-80fc-384f90092883.gif)
