@@ -20,6 +20,7 @@ def setup():
     screen.setworldcoordinates(0, 0, WIDTH, HEIGHT)
     pointer.hideturtle()
     screen.delay(delay=0)
+    turtle.tracer(0,0);
     turtle.bgcolor(BACKGROUNDCOLOR)
     pointer.up()
     return pointer
@@ -148,6 +149,7 @@ def read_constellation_info(filename):
 # INPUT: Turtle object, constellation star location data, star key=name/value=[x,y,mag], color bit
 # RETURN: None
 def draw_constellation(pointer, constellation_info, constellation_name, star_info_dict, color):
+    turtle.tracer(1,1);
     min_x, max_x, min_y, max_y = 1.0, -1.0, 1.0, -1.0
     if color == 0:
         pointer.color('red')
@@ -229,7 +231,7 @@ def main():
         star_info, star_info_dict = read_star_info(sys.argv[1])
     elif len(sys.argv) == 2 and '-names' in sys.argv:
         star_name_bit = 1
-        stars_location_file = input('Enter a star location filename:')
+        stars_location_file = 'star_locations/' + input('Enter a star location filename:')
         star_info, star_info_dict = read_star_info(stars_location_file)
     else:
         stars_location_file = input('Enter a star location filename:')
@@ -242,8 +244,8 @@ def main():
     # Continuously asking for user input of constellation files until nothing is entered
     color = 0
     while True:
-        constellation_filename = input('Enter a constellation filename:')
-        if constellation_filename == '':
+        constellation_filename = 'constellations/' + input('Enter a constellation filename:')
+        if constellation_filename == 'constellations/':
             break
         elif os.path.isfile(constellation_filename):
             constellation_info, constellation_name = read_constellation_info(constellation_filename)
